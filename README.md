@@ -1,2 +1,2 @@
 # ECommerce_Website
-New project for Django
+New project an ecommerce website using Django and Bootstrap
