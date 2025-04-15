@@ -53,7 +53,7 @@ class Order(models.Model):
 
 # Auto Add shipping Date
 @receiver(pre_save, sender=Order)
-def set_shipped_date_update(sender, instance, **kwargs):
+def set_shipped_date_on_update(sender, instance, **kwargs):
 	if instance.pk:
 		now = datetime.datetime.now()
 		obj = sender._default_manager.get(pk=instance.pk)
