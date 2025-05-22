@@ -1,12 +1,23 @@
 from pathlib import Path
 import os
 from dotenv import load_dotenv
+<<<<<<< HEAD
+=======
+
+>>>>>>> ab118beb51f742e57fcee903e99ecacee69f0825
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Load our environmental variables
 load_dotenv()
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> ab118beb51f742e57fcee903e99ecacee69f0825
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -18,6 +29,7 @@ SECRET_KEY = 'django-insecure-!(tb=digvo+0*0pzv8-p1q_i-%vi6^f5vk_a#xk76d&qdxrus3
 DEBUG = True
 
 ALLOWED_HOSTS = []
+CSRF_TRUSTED_ORIGINS = []
 
 
 # Application definition
@@ -32,6 +44,7 @@ INSTALLED_APPS = [
     'store',
     'cart',
     'payment',
+    'whitenoise.runserver_nostatic',
 ]
 
 MIDDLEWARE = [
@@ -42,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'ecom.urls'
@@ -76,9 +90,15 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
         'USER': 'postgres',
+<<<<<<< HEAD
         'PASSWORD': os.environ.get('DB_PASSWORD_YO'),
         'HOST': 'switchback.proxy.rlwy.net',
         'PORT': '26271',
+=======
+        #'PASSWORD': '',
+        'HOST': 'centerbeam.proxy.rlwy.net',
+        'PORT': '54142',
+>>>>>>> ab118beb51f742e57fcee903e99ecacee69f0825
         
     }
 }
@@ -118,8 +138,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS = ['static/']
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+    ]
+
+# White noice static stuff 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 
 
 MEDIA_URL = 'media/'
