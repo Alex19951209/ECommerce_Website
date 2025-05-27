@@ -80,8 +80,8 @@ DATABASES = {
         'NAME': 'railway',
         'USER': 'postgres',
         'PASSWORD': os.environ['DB_PASSWORD_YO'],
-        'HOST': 'postgres.railway.internal',
-        'PORT': '5432',
+        'HOST': 'switchback.proxy.rlwy.net',
+        'PORT': '26271',
         
     }
 }
